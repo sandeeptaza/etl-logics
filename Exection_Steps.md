@@ -47,3 +47,47 @@ To add support for new providers or modify the processing logic:
 
 3. **Run the Job**:
    - Execute the AWS Glue job, which will automatically process the new provider based on the updated configuration.
+
+
+------------------------------------------
+
+
+# Running AWS Glue Job with Dynamic Parameters in the AWS Glue Console
+
+This guide outlines how to run an AWS Glue job with dynamic parameters directly from the **AWS Glue Console (UI)**.
+
+
+
+## Step 1: Create or Update a Glue Job
+- Navigate to the AWS Glue Console and create a new Glue job, or select an existing job to update.
+
+
+## Step 2: Open the Glue Job in the Console
+- In the **AWS Glue Console**, click on the job you want to edit or run.
+
+## Step 3: Configure Job Parameters
+- In the **"Script arguments"** section of the job configuration, click **"Add new parameter"**.
+
+## Step 4: Add Dynamic Parameters
+- Add each of the required parameters defined in your script. For example:
+  
+| Key                       | Value           |
+|---------------------------|-----------------|
+| `--PROVIDER`               | `checkout_sg`   |
+| `--PAYIN_FILTER_DATE_START`| `2024-07-31`    |
+| `--PAYIN_FILTER_DATE_END`  | `2024-08-21`    |
+| `--SESSION_FILTER_DATE_START`| `2024-07-31`  |
+| `--SESSION_FILTER_DATE_END`| `2024-08-21`    |
+
+## Step 5: Save the Job
+- After adding the parameters, click **"Save"** to save the job configuration.
+
+## Step 6: Run the Glue Job
+- In the AWS Glue Console, click **"Run Job"** to execute the job with the dynamic parameters.
+- The job will now use the provided arguments during execution.
+
+## Step 7: Verify Job Execution
+- Monitor the job's execution in
+ **AWS CloudWatch Logs** to ensure the parameters are being passed correctly.
+- Verify the job output and logs to confirm successful execution.
+
